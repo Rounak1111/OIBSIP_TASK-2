@@ -1,0 +1,53 @@
+//Oasis Infobyte Java Development internship Task 2
+
+import java.util.Scanner;
+
+public class Guessnumber_task1 {
+
+
+	public static void Guessnumber()
+	{
+		try (   // Scannerclass---->
+        Scanner sc = new Scanner(System.in)) 
+        {
+            int number = 1 + (int)(100* Math.random());
+            // Given N trials
+            int N = 5;
+            int i, Guess;
+            System.out.println(
+            	"A number is chosen"
+            	+ " between 1 to 100."
+            	+ "Guess the number"
+            	+ " within 5 trials.");
+
+            // Iterate over N Trials---->
+
+            for (i = 0; i < N; i++) 
+            {
+            	System.out.println("Enter any number :");
+            	Guess = sc.nextInt();
+            	if (number == Guess) {
+            		System.out.println("Well played !"+ " You guessed the correct number.");
+            		break;
+            	}
+            	else if (number > Guess&& i != N - 1) {
+            		System.out.println("The number is "+ "greater than " + Guess);
+            	}
+            	else if (number < Guess&& i != N - 1) {
+            		System.out.println(	"The number is"+ " less than " + Guess);
+            	}
+            }
+
+            if (i ==N) {
+            	System.out.println(	"You have crossed you limit"+ " N trials");
+
+            	System.out.println("The correct number is " + number);
+            }
+        }
+	}
+	public static void main(String arg[])
+	{
+		Guessnumber();
+
+	}
+}
